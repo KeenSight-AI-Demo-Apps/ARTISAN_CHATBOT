@@ -14,7 +14,7 @@ if st.button("Ask"):
                 "http://localhost:8000/ask", json={"question": question}
             )
             st.write("Status code:", response.status_code)
-            st.write("Response text:", response.text)
+            
 
             if response.status_code == 200:
                 data = response.json()
