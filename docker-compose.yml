@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: openwebui
+    ports:
+      - "3000:8080"
+    environment:
+      - OPENAI_API_BASE_URLS=http://host.docker.internal:8000/ask
+      - OPENAI_API_KEYS=dummy-key
+      - DEFAULT_MODELS=openai/gpt-4o
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - openwebui_data:/app/backend/data
+volumes:
+  openwebui_data:
