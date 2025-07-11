@@ -2,7 +2,6 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from chatbot import query_engine
 from typing import List, Dict
-import json
 
 app = FastAPI()
 
@@ -16,17 +15,16 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Artisan AI Chatbot running"}
+    return {"message": "Artisan AI Chatbot is running."}
 
 @app.get("/ask/models")
 @app.get("/ask/chat/completions/models")
-async def get_models():
-    """Return a list of available models for OpenWebUI compatibility."""
+def get_models():
     return {
         "data": [
             {
-                "id": "openai/gpt-4o",
-                "name": "GPT-4o",
+                "id": "openai/gpt-4o-2024-11-20",
+                "name": "EyobBot",
                 "object": "model",
                 "created": 1699478378,
                 "owned_by": "openrouter"
@@ -37,19 +35,13 @@ async def get_models():
 
 @app.post("/ask")
 @app.post("/ask/chat/completions")
-@app.post("/ask/chat/completions/chat/completions")
-async def ask(request: Request):
+async def ask(request: Request):  
     data = await request.json()
-    # Handle both single question and OpenAI-compatible messages format
-    if "question" in data:
-        messages = [{"role": "user", "content": data["question"]}]
-    elif "messages" in data:
-        messages = data["messages"]
-    else:
-        return {"error": "Invalid request format. Provide 'question' or 'messages'."}
+    messages = [{"role": "user", "content": data.get("question")}] if "question" in data else data.get("messages")
+    if not messages:
+        return {"error": "Invalid request. Provide 'question' or 'messages'."}
     
     response = query_engine.query(messages)
-    # Return OpenAI-compatible response for OpenWebUI
     return {
         "choices": [
             {
@@ -59,5 +51,6 @@ async def ask(request: Request):
                 }
             }
         ],
-        "model": "openai/gpt-4o"
+        "model": "openai/gpt-4o-2024-11-20"
     }
+
