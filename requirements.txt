@@ -6,3 +6,4 @@ langchain
 sentence-transformers
 python-dotenv
 requests
+pytest-mock
