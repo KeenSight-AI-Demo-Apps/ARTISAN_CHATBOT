@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1"
+  },
+  "name": "artisan_chatbot",
+  "version": "1.0.0",
+  "description": "A simple RAG-based chatbot for artisan marketplaces using LlamaIndex, FastAPI, Streamlit, and OpenRouter.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeenSight-AI-Demo-Apps/ARTISAN_CHATBOT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeenSight-AI-Demo-Apps/ARTISAN_CHATBOT/issues"
+  },
+  "homepage": "https://github.com/KeenSight-AI-Demo-Apps/ARTISAN_CHATBOT#readme"
+}
