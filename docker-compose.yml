@@ -10,10 +10,8 @@ services:
       - OPENAI_API_BASE_URLS=http://host.docker.internal:8000/ask
       - DEFAULT_MODELS=openai/gpt-4o-2024-11-20
       - APP_TITLE=My Custom Assistant
-      - BOT_NAME=EyobBot
-      - WEBUI_AUTH=false 
-     
-
+      - BOT_NAME=Artisan
+      - WEBUI_AUTH=false
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
