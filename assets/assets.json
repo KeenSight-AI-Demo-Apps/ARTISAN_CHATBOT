@@ -1,0 +1,35 @@
+{
+    "project_name": "Artisan AI Chatbot",
+    "description": "A FastAPI-based chatbot powered by OpenAI GPT-4o, designed to assist users with intelligent, conversational responses.",
+    "version": "1.0.0",
+    "features": [
+      "FastAPI backend with CORS support",
+      "OpenAI GPT-4o integration",
+      "Endpoint for fetching available models",
+      "Endpoint for sending and receiving chat messages",
+      "Dockerized deployment",
+      "Custom chatbot persona: EyobBot"
+    ],
+    "media_assets": {
+      "screenshots": [
+        "assets/screenshots/custom_order_question.png",
+        "assets/screenshots/question_not_provided_in_data.png",
+        "assets/screenshots/shipping_question.png",
+        "assets/screenshots/followup question1.png",
+        "assets/screenshots/followup question2.png"
+      ],
+      "videos": [
+        "assets/videos/demo_walkthrough.mp4"
+      ]
+    },
+    "deployment": {
+      "docker_image": "artisan_chatbot:latest",
+      "env_example_file": ".env.example",
+      "instructions": "Refer to DEPLOYMENT.md for full deployment steps."
+    },
+    "maintainer": {
+      "name": "Eyob Teshale",
+      "email": "eyobeyayesh@gmail.com"
+    }
+  }
+  
